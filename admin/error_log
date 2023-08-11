@@ -1,0 +1,2 @@
+[24-Feb-2021 12:02:57 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/snmtechnologies/public_html/html/bottmac3/admin/add_product.php on line 10
+[02-Dec-2021 08:15:53 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home1/snmtechnologies/public_html/html/bottmac3/admin/add_product.php on line 10
