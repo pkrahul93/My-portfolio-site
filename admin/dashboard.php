@@ -6,48 +6,57 @@
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
-                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-sitemap"></i>
                   </div>
-                  <p class="card-category">Products</p>
-                  <h3 class="card-title">49
-                    
+                  <?php
+                  $total_services = mysqli_num_rows(mysqli_query($connect,"Select * From `services` Where `status` = 1"));
+                  ?>
+                  <p class="card-category">Services</p>
+                  <h3 class="card-title">
+                    <?= $total_services ?>+
                   </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                 Total Products
-                    
+                    <i class="material-icons">update</i> Just Updated    
                   </div>
                 </div>
               </div>
             </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
+                <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
                     <i class="fa fa-list"></i>
                   </div>
-                  <p class="card-category">Blogs</p>
-                  <h3 class="card-title">10
-                    
+                  <?php
+                  $total_projects = mysqli_num_rows(mysqli_query($connect,"Select * From `portfolios` Where `status` = 1"));
+                  ?>
+                  <p class="card-category">Projects</p>
+                  <h3 class="card-title">
+                    <?= $total_projects ?>+
                   </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                 Total Blogs
-                    
+                    All Portfolios
                   </div>
                 </div>
               </div>
             </div>
                  <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
+                <div class="card-header card-header-primary card-header-icon">
                   <div class="card-icon">
-                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-mortar-board"></i>
                   </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+345</h3>
+                  <?php
+                  $total_skill = mysqli_num_rows(mysqli_query($connect,"Select * From `skills`"));
+                  ?>
+                  <p class="card-category">Skills</p>
+                  <h3 class="card-title">
+                  <?= $total_skill ?>+
+                  </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -60,10 +69,20 @@
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-users"></i>
                   </div>
-                  <p class="card-category">Visiters</p>
-                  <h3 class="card-title">+245</h3>
+                  <?php
+                    $csql = "SELECT * FROM `visitors`";
+                    $cres = mysqli_fetch_assoc(mysqli_query($connect, $csql));
+                    
+                    if ($cres != '') {
+                        $counter = $cres['total_count'];
+                    } else {  
+                        $counter = 0;
+                    }
+                    ?>
+                  <p class="card-category">Visitors</p>
+                  <h3 class="card-title"><?php echo $counter ?>+</h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
